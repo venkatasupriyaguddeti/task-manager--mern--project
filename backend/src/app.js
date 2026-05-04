@@ -9,7 +9,12 @@ import cors from "cors";
 
 const app = express();
 
+app.set("etag", false);
 app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader("Cache-Control", "no-store");
+  next();
+});
 
 app.use(express.json());
 app.use(morgan("dev"));
