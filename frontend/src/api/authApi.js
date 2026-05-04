@@ -1,4 +1,5 @@
 import axiosClient from "./axiosClient";
+import { clearAuth } from "../utils/storage";
 export const registerApi = async ({ name, email, password }) => {
     const res = await axiosClient.post("/auth/register", {
         name,
